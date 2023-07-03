@@ -37,7 +37,7 @@ class Bird:
 
     def move(self):
         self.tick_count += 1
-        d = self.vel * self.tick_count + 1.5*self.tick_count**2
+        d = self.vel * (self.tick_count) + 1.5 * (self.tick_count)**2
 
         if d >= 16:
             d = 16
@@ -47,7 +47,7 @@ class Bird:
 
         self.y = self.y + d
 
-        if d > 0 or self.y < self.height + 50:
+        if d < 0 or self.y < self.height + 50:
             if self.tilt < self.MAX_ROTATION:
                 self.tilt = self.MAX_ROTATION
         else:
@@ -69,7 +69,7 @@ class Bird:
             self.img = self.IMGS[0]
             self.img_count = 0
 
-        if self.tilt >= -80:
+        if self.tilt <= -80:
             self.img = self.IMGS[1]
             self.img_count = self.ANIMATION_TIME*2
 
@@ -100,7 +100,6 @@ def main():
                 
         draw_window(win, bird)
         bird.move()
-
     pygame.quit()
     quit()
 
