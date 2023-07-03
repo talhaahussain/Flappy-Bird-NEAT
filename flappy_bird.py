@@ -4,14 +4,14 @@ import time
 import os
 import random
 
-WIN_WIDTH = 600
+WIN_WIDTH = 392
 WIN_HEIGHT = 700
 
 BIRD_IMGS = [pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird1.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird2.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird3.png")))]
 
 PIPE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "pipe.png")))
 BASE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "base.png")))
-BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bg.png")))
+BG_IMG = pygame.transform.scale(pygame.image.load(os.path.join("imgs", "bg.png")), (392, 700))
 
 
 class Bird:
@@ -80,6 +80,27 @@ class Bird:
     def get_mask(self):
         return pygame.mask.from_surface(self.img)
 
+class Pipe:
+    GAP = 200
+    VEL = 5
+
+    def ___init__(self, x):
+        self.x = x
+        self.height = 0
+        self.gap = 100
+
+        self.top = 0
+        self.bottom = 0
+        self.PIPE_TOP = pygame.transform.flip(PIPE_IMG, False, True)
+        self.PIPE_BOTTOM = PIPE_IMG
+
+        self.passed = False
+        self.set_height()
+
+    def set_height(self):
+        self.height = random.randrange(50, 450)
+        self.top = self.height = self.PIPE_TOP.get_height()
+        self.bottom = self.height + self.GAP
 
 def draw_window(win, bird):
     win.blit(BG_IMG, (0, 0))
