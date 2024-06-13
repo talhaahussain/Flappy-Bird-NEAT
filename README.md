@@ -1,5 +1,5 @@
 # Flappy-Bird-NEAT
-An implementation of Flappy Bird by Dong Nguyen (2013) in Pygame, as well as a NEAT (NeuroEvolution of Augmenting Topologies) genetic algorithm to learn and play the game. Written in Python.
+An implementation of Flappy Bird by Dong Nguyen (2013) in Pygame, as well as a NEAT (NeuroEvolution of Augmenting Topologies) genetic algorithm to learn and play the game. Written in Python. Inspired by Tech With Tim's YouTube series - see [here](https://youtube.com/playlist?list=PLzMcBGfZo4-lwGZWXz5Qgta_YNX3_vLS2&feature=shared).
 
 ### Prerequisites
 
